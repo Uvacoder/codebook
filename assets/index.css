@@ -1,0 +1,139 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+
+  /** General button styles */
+  .btn {
+    @apply inline-flex items-center px-6 py-2 rounded-full font-medium text-sm transition-colors tracking-wide text-center !no-underline cursor-pointer;
+  }
+  
+  /** Large button */
+  .btn--lg {
+    @apply px-10 py-3;
+  }
+
+  /** Primary button */
+  .btn.btn--primary {
+    @apply bg-primary-500 text-white hover:bg-primary-600 focus:bg-primary-600;
+  }
+
+  /** Secondary button */
+  .btn.btn--secondary {
+    @apply bg-black text-white hover:bg-gray-700 focus:bg-gray-700;
+  }
+
+  .btn.btn--light {
+    @apply bg-white text-primary-500 hover:bg-gray-100 focus:bg-gray-100;
+  }
+
+  /** Prose classes */
+  .prosed {
+    @apply 
+      prose 
+      prose-headings:text-black 
+      prose-headings:font-bold 
+      prose-headings:font-sans 
+      prose-headings:mb-[0.75em] 
+      prose-headings:leading-normal
+      prose-h1:text-4xl
+      prose-h2:text-3xl 
+      prose-h3:text-2xl 
+      prose-h4:text-xl 
+      prose-a:underline 
+      prose-a:text-primary-500 
+      prose-ul:list-inside 
+      prose-ul:pl-0 
+      prose-li:pl-0
+      prose-blockquote:border-none
+      prose-blockquote:not-italic
+      prose-blockquote:font-normal
+      prose-blockquote:bg-primary-100
+      prose-blockquote:p-8
+      prose-strong:text-black
+      max-w-none;
+  }
+
+}
+
+/** Override scrollbar styles */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+  background-color: rgba(0,0,0,0.1);
+}
+::-webkit-scrollbar-thumb {
+  background-color: rgba(0,0,0,0.2);
+}
+
+/** Apply position relative to everything */
+* {
+  position: relative;
+}
+
+/** Html styles */
+html {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  font-size: 16px;
+}
+
+
+/** Breakpoint below 'sm', reduce rem */
+@media (max-width: 639px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+/** Body styles */
+body {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.75;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/** Make SVGs display inline with text */
+svg {
+  display: inline;
+}
+
+::selection {
+  background: #000000;
+  color: #FFF;
+}
+
+#nprogress {
+  pointer-events: none;
+}
+
+#nprogress .bar {
+  @apply fixed top-0 left-0 w-full h-[3px] bg-primary-500 opacity-80;
+  z-index: 1031;
+}
+
+.page-enter-from{
+  opacity: 0;
+  transform: translateY(-12px);
+}
+
+.page-enter-active,
+.page-leave-active {
+  transition: all 0.3s ease-in-out;
+}
+.page-enter,
+.page-leave-to {
+  opacity: 0;
+}
